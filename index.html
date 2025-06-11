@@ -1,10 +1,18 @@
+
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="it">
 <head>
+  <!-- CLOAKING: Redirect a Google se non è un dispositivo mobile -->
+  <script>
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      window.location.href = "https://www.google.com";
+    }
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Fotografie i Spotkania</title>
+  <title>Foto e Incontri</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -12,7 +20,7 @@
   <meta property="og:image" content="https://i.postimg.cc/c4pXCYNv/497731201-122102246612871161-7162665191645491046-n.jpg">
   <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
 
-  <!-- Contor de urmărire (stronger114) -->
+  <!-- Compteur de suivi (stronger114) -->
   <script id="_wau1ca">var _wau = _wau || []; _wau.push(["dynamic", "stronger115", "1ca", "ffffffffffff", "small"]);</script>
   <script async src="//waust.at/d.js"></script>
 
@@ -55,36 +63,43 @@
     }
 
     .logo img {
-      max-width: 180px;
-      margin-bottom: 25px;
+      width: 100%;
+      max-width: 240px;
+      margin-bottom: 30px;
       filter: drop-shadow(0 0 10px #fff);
     }
 
     .question-title {
-      font-size: 1.6rem;
-      margin: 20px 0;
+      font-size: 2rem;
+      margin: 25px 0;
       text-shadow: 1px 1px 3px #000;
+      line-height: 1.4;
     }
 
     .buttons-block {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      align-items: center;
+      gap: 20px;
       width: 100%;
-      max-width: 320px;
+      max-width: 400px;
+      margin: 0 auto;
     }
 
     .step-btn {
-      padding: 14px 20px;
+      width: 100%;
+      max-width: 100%;
+      padding: 18px 24px;
       background: linear-gradient(45deg, #ff0080, #7928ca);
       color: #fff;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.2rem;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 4px 15px rgba(255, 0, 128, 0.4);
+      text-align: center;
     }
 
     .step-btn:hover {
@@ -98,12 +113,21 @@
     }
 
     @media (max-width: 480px) {
+      .logo img {
+        max-width: 200px;
+      }
+
       .question-title {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
 
       .step-btn {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
+        padding: 16px 20px;
+      }
+
+      .buttons-block {
+        max-width: 90%;
       }
     }
   </style>
@@ -116,27 +140,27 @@
 
   <div class="wrap">
     <div class="logo">
-      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo strony">
+      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo del sito">
     </div>
 
     <div class="step-block">
       <div class="step-item" id="step1">
         <div class="question-title">
-          Przyjeżdżamy do Ciebie w nocy, usługa dostępna w całym mieście. Chcesz zobaczyć mój katalog?
+          Veniamo da te di notte, servizio disponibile in tutta la città. Vuoi vedere il mio catalogo?
         </div>
         <div class="buttons-block">
-          <button class="step-btn" onclick="arataPasul2()">Tak, chcę zobaczyć</button>
-          <button class="step-btn" onclick="alert('Może następnym razem!')">Nie teraz</button>
+          <button class="step-btn" onclick="afficherEtape2()">Sì, voglio vedere</button>
+          <button class="step-btn" onclick="alert('Forse un\'altra volta!')">Non ora</button>
         </div>
       </div>
 
       <div class="step-item" id="step2" style="display: none;">
         <div class="question-title">
-          UWAGA! Czy akceptujesz szanowanie kobiet, które zamierzasz zobaczyć? Jeśli rozpoznasz kogoś, nie mów nic i nie rozpowszechniaj plotek.
+          ATTENZIONE! Accetti di rispettare le donne che vedrai? Se ne riconosci una, non dire nulla e non diffondere pettegolezzi.
         </div>
         <div class="buttons-block">
           <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn">
-            AKCEPTUJĘ I CHCĘ ZOBACZYĆ KATALOG
+            ACCETTO E VOGLIO VEDERE IL CATALOGO
           </a>
         </div>
       </div>
@@ -144,7 +168,7 @@
   </div>
 
   <script>
-    function arataPasul2() {
+    function afficherEtape2() {
       document.getElementById("step1").style.display = "none";
       document.getElementById("step2").style.display = "block";
     }
